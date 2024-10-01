@@ -2,6 +2,8 @@
 
 *See report for complete imformation*
 *--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*
+
+
 Data Analysis
 
 Since we are trying to predict market value of a player, it is relevant to start with some of the features that may have some importance to the target feature. A good starting point would be to see if there is any difference in market values by league. Given my domain knowledge, even though La Liga had arguably the strongest two teams for a long time (FC Barcelona & Real Madrid), the English Premier League (EPL) had elite players spread across different teams, given its bigger audience, reach and the money being invested by Arabic enterprises and millionaires that allow many clubs to invest heavily in their squad. Other factors such as the arrival of elite coaches such as Pep Guardiola or Jurgen Klopp, and their strong and offensive sporting projects also contributed to better performance, spectacle, and therefore an increase in revenue.
@@ -119,6 +121,8 @@ The Neural Networks were left with 2 hidden layers of 30 neurons each. The perfo
 As suspected, the improvement in error performance of most of the models suggest that they are performing better when being exposed to the entirety of the data, hence highlighting the importance of accounting the necessary features that may have an impact on the target variable as correctly inferred in the Data Analysis section.
 
 *--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*
+
+
 Discussion
 The Random Forest model continued to be the best model in Phase 2, yielding an overall MAE value of 3.97 million GBP. While this performance demonstrates the model’s relative strength within the context of our analysis, it may not be ideal for practical expectations. 
 If we recall from the Data Analysis section, the mean of the target variable was 6.27 million GBP, and the median was 2.0 million GBP. With a MAE of 3.97 million GBP, this implies that the model is unable to correctly predict market value by a margin higher than the median of the data, and we can make some analysis on why this is happening:
