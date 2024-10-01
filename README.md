@@ -31,16 +31,11 @@ Additionally, notice how 5 out of the 10 players are left-wingers.
 
 But what are these characteristics that contribute the most to a player’s market value? Let’s look at overall correlation metrics.
 
-Feature	Correlation
-ThruBalls	0.572945
-ProgCarries	0.567267
-GCA	0.567214
-GCAPassLive	0.555344
-PenAreaCmp	0.547783
-CarriesToFinal3rd	0.535508
-Att3rdTouch	0.535358
-npxG+xA	0.526606
-SCAPassLive	0.523227
-PrgCarryDist	0.518252
+<img width="205" alt="Screenshot 2024-09-30 at 10 05 50 PM" src="https://github.com/user-attachments/assets/550c80bc-bd19-42d9-864b-35512a4a78e6">
+
+Given the information seen in Table 2, we can reflect on some of the TOP predictors. The TOP predictor according to the correlation coefficient is ThruBalls, representing the number of times a player performs a through ball, which is a pass into open space between two defenders for an attacker to receive the ball, thus a line-breaking pass. 
+This aspect is particularly crucial as line-breaking passes are very risky but are the most efficient way to break defensive lines (and consequently opposition players). Since the ball always moves faster than a player, it is ideal. However, breaking defensive lines or just advancing in position by carrying the ball, thus Progressive Carries (as our TOP 2 feature), is also very important, and it makes total sense for both to be up there. Goal Creating Actions also rank high, and it is interesting how all of these variables are related to the final progression and closeness to the objective of any team: scoring goals.
+Another relevant feature is npxG+xA, which stands for non-penalty expected goals + expected assists. This metric has been recently developed by the application of machine learning algorithms that focus on the quality of the opportunities created rather than the quantity of them. 
+Expected Goals (xG) differs from Goals Scored or Shots performed because of interpretability. While Goals and Shots score rather reflect the actual number of actions performed, xG values reflect the probability of a shot resulting in a goal based on historical data and the characteristics of the shot itself (such as positioning, distance to the goal, etc.). This metrics are important since they offer football spectators and analyses new ways to watch and assess performance in football.
 
 
