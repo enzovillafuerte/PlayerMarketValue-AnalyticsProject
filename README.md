@@ -77,12 +77,13 @@ Machine Learning Algorithms
 
 The data was later split into training and test sets. The split was performed by random assignment using scikit-learn library. However, in practice it would have been nice to predict last season’s (2021-2022) player market values, since objectively speaking the whole point is to predict the ‘next’ season player value. However, since we are trying to analyze results first, the randomly split data align with our purposes.
 To find the best regression model, different algorithms were tested in order to verify which one provides the better error performance. The algorithms used along with the software of its development are listed as follows:
-•	Simple Linear Regression (Python, Scikit-learn)
-•	Ridge Regression (Python, Scikit-learn)
-•	Lasso Regression (Python, Scikit-learn)
-•	Random Forest (Python, Scikit-learn)
-•	K Nearest Neighbors (Python, Scikit-learn)
-•	Neural Networks (Orange Software)
+
+Simple Linear Regression (Python, Scikit-learn)
+Ridge Regression (Python, Scikit-learn)
+Lasso Regression (Python, Scikit-learn)
+Random Forest (Python, Scikit-learn)
+K Nearest Neighbors (Python, Scikit-learn)
+Neural Networks (Orange Software)
 
 
 Prediction Results – Phase 1
