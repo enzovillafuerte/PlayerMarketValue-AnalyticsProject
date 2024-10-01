@@ -79,10 +79,15 @@ The data was later split into training and test sets. The split was performed by
 To find the best regression model, different algorithms were tested in order to verify which one provides the better error performance. The algorithms used along with the software of its development are listed as follows:
 
 Simple Linear Regression (Python, Scikit-learn)
+
 Ridge Regression (Python, Scikit-learn)
+
 Lasso Regression (Python, Scikit-learn)
+
 Random Forest (Python, Scikit-learn)
+
 K Nearest Neighbors (Python, Scikit-learn)
+
 Neural Networks (Orange Software)
 
 
