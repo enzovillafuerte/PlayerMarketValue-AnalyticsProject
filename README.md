@@ -117,16 +117,21 @@ Given that the dataset exhibits a wide range of values in the target feature (mi
 
 Non-Normality of Target Feature
 As previously noted, the non-normal distribution of the target feature definitely complicates prediction accuracy. Transformation methods such as Box-Cox were considered to target this issue, however its impact on model interpretability led to our decision to avoid it for explainability purposes.
+
 Selective Filtering
 Limiting the analysis on players that meet certain requirements, such as having a minimum market value of 10 million GBP could enhance model performance by focusing on a more representative subset of high-performing players.
+
 Feature Selection
 Technique such as Boruta Algorithm or Stepwise Feature Selection were considered but discarded due to time constraints and computational efficiency. They could be very useful in reducing dimensionality of the data and keeping only relevant variables, thus enhancing the model’s performance.
+
 Influence of Non-Performance Factors
 As stated before, the low performance could be related to non-performance values such as marketing, publicity, contract length, and social media presence of the players. Features that are not quantifiable in our dataset.
+
 Conclusion and future work
 Football performance on the pitch, although it is very important, is not enough for determining the player’s market value. There is a higher indication that other factors such as marketing and contract length of the player’s contract have a high relevance on the target feature. By focusing only on performance metrics, the model does not produce high levels of prediction accuracy. However, by separating players by league and positions, we have slightly better results, which are still not good enough given my domain knowledge. 
+
 This project, though, serves as a basis for future work, in which other factors such as the ones mentioned should be incorporated and re-evaluated alongside other measures such as feature selection or data normalization for better prediction accuracy.
-![image](https://github.com/user-attachments/assets/718522ac-0103-46fb-9d8c-e59e25417012)
+
 
 
 
