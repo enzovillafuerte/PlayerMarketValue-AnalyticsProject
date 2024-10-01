@@ -72,6 +72,7 @@ Additionally, standardization still preserves feature interpretability, a very i
 
 <img width="412" alt="image" src="https://github.com/user-attachments/assets/277e3899-0050-40a5-8efa-0534a95aa2a8">
 
+
 Machine Learning Algorithms
 
 The data was later split into training and test sets. The split was performed by random assignment using scikit-learn library. However, in practice it would have been nice to predict last season’s (2021-2022) player market values, since objectively speaking the whole point is to predict the ‘next’ season player value. However, since we are trying to analyze results first, the randomly split data align with our purposes.
@@ -82,6 +83,50 @@ To find the best regression model, different algorithms were tested in order to 
 •	Random Forest (Python, Scikit-learn)
 •	K Nearest Neighbors (Python, Scikit-learn)
 •	Neural Networks (Orange Software)
+
+
+Prediction Results – Phase 1
+
+When separating the data into two different sets for training and testing, a major issue occurred in which the model was outputting error messages related to the values of some of the features. More specifically, some values were being interpreted as either NaN or infinite. After conducting investigations, we realized that the problem relied on the binary variables only. Some troubleshooting was performed; however, given time constraints we decided to just remove the binary features and continue with the modeling on Phase 1, and later build models in a different software with the entire dataset on Phase 2.
+The Mean Absolute Deviation (MAE) was chosen for the assessment given its interpretability, as in the context of football analytics, stakeholders tend to be interested in seeing the actual number of errors in the known units, rather than having to interpret other less explainable ones such as the MSE (Mean Squared Error).
+We first started by building a Simple Linear Regression model to assess the accuracy of the predictions, in which we got a high number on the MAE, indicating a poor performance.
+Some regularization were applied as it can be seen in the Ridge Regression and Lasso Regression models, with penalizations of α = 200 and  α = 1  respectively, and some improvements were seen by introducing an amount of bias to reduce the variance.
+
+<img width="272" alt="Screenshot 2024-09-30 at 10 09 54 PM" src="https://github.com/user-attachments/assets/c0abe14b-3218-4c8a-bb77-2af06a3d45e2">
+
+K Nearest Neighbors model was the next on the list, in which different values for hyperparameter k were tested to select the one that was capturing the underlying relationships of the data the best in relation to their error performance. A k value of 20 was chosen for development, providing a better performance than the previous Regression models.
+Random Forest Regressor was later developed and by using cross-validation the optimal number of estimators was selected to be 50, which produced the lowest-value MAE and consequently the best model among the 5 chosen.
+Additionally, it is important to highlight that all models developed were built by carefully considering measurements for avoiding under or overfitting to the data. More specifically, we were very interested in knowing the difference in error metrics between training and testing, and also by incorporating cross-validation to assess the difference in error performance. 
+
+Prediction Results – Phase 2
+
+As mentioned before, the same models with the addition of Artificial Neural Networks were built using Orange Software, but this time by incorporating the binary variables for both Position and League of each player.
+The model’s parameters and hyperparameters remain the same as those in Phase 1, not necessarily because they might give the best results, but to serve as a benchmark to compare the impact of the binary variables on the overall performance of the improved model in relation to the previous ones.
+The Neural Networks were left with 2 hidden layers of 30 neurons each. The performance of these models are shown in Table 5.
+
+<img width="477" alt="Screenshot 2024-09-30 at 10 10 31 PM" src="https://github.com/user-attachments/assets/d1b709c5-f237-464f-a569-364b77d24d92">
+
+As suspected, the improvement in error performance of most of the models suggest that they are performing better when being exposed to the entirety of the data, hence highlighting the importance of accounting the necessary features that may have an impact on the target variable as correctly inferred in the Data Analysis section.
+
+Discussion
+The Random Forest model continued to be the best model in Phase 2, yielding an overall MAE value of 3.97 million GBP. While this performance demonstrates the model’s relative strength within the context of our analysis, it may not be ideal for practical expectations. 
+If we recall from the Data Analysis section, the mean of the target variable was 6.27 million GBP, and the median was 2.0 million GBP. With a MAE of 3.97 million GBP, this implies that the model is unable to correctly predict market value by a margin higher than the median of the data, and we can make some analysis on why this is happening:
+
+Presence of Outliers
+Given that the dataset exhibits a wide range of values in the target feature (minimum value of 0.050 million GBP and maximum of 180 million GBP), the data is prone to the influence of outliers, potentially distorting model predictions.
+
+Non-Normality of Target Feature
+As previously noted, the non-normal distribution of the target feature definitely complicates prediction accuracy. Transformation methods such as Box-Cox were considered to target this issue, however its impact on model interpretability led to our decision to avoid it for explainability purposes.
+Selective Filtering
+Limiting the analysis on players that meet certain requirements, such as having a minimum market value of 10 million GBP could enhance model performance by focusing on a more representative subset of high-performing players.
+Feature Selection
+Technique such as Boruta Algorithm or Stepwise Feature Selection were considered but discarded due to time constraints and computational efficiency. They could be very useful in reducing dimensionality of the data and keeping only relevant variables, thus enhancing the model’s performance.
+Influence of Non-Performance Factors
+As stated before, the low performance could be related to non-performance values such as marketing, publicity, contract length, and social media presence of the players. Features that are not quantifiable in our dataset.
+Conclusion and future work
+Football performance on the pitch, although it is very important, is not enough for determining the player’s market value. There is a higher indication that other factors such as marketing and contract length of the player’s contract have a high relevance on the target feature. By focusing only on performance metrics, the model does not produce high levels of prediction accuracy. However, by separating players by league and positions, we have slightly better results, which are still not good enough given my domain knowledge. 
+This project, though, serves as a basis for future work, in which other factors such as the ones mentioned should be incorporated and re-evaluated alongside other measures such as feature selection or data normalization for better prediction accuracy.
+![image](https://github.com/user-attachments/assets/718522ac-0103-46fb-9d8c-e59e25417012)
 
 
 
